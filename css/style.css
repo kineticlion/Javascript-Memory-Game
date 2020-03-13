@@ -120,7 +120,7 @@
 }
 
 .hide{
-    background-image: none;
+    display: none;
 }
 
 #dataContainer{
