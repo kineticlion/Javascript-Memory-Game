@@ -39,6 +39,7 @@
     width: 5vw;
     border: none;
     margin: 1vh 2vw;
+    cursor: default;
     background-size: contain;
 }
 
@@ -51,6 +52,7 @@
 
 .gameSymbols:hover{
     background-color: #c1b5a4;
+    cursor: pointer;
 }
 
 
