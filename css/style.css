@@ -25,6 +25,10 @@
     border-radius: 2vw;
 }
 
+.onHover:hover,#symbolContainer button:hover{
+    cursor:default;
+}
+
 #headerContainer h1{
     margin-top: 1vh;
 }
@@ -33,9 +37,7 @@
     outline: 0;
     height: 10vh;
     width: 5vw;
-    cursor: pointer;
     border: none;
-    background-size: cover;
     margin: 1vh 2vw;
     background-size: contain;
 }
