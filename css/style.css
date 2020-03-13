@@ -125,21 +125,25 @@
 
 #dataContainer{
     grid-area: dataContainer;
-    margin: 9vh 4vw;
+    margin: 2vh 2vw;
     background-color: #dcd2c0;
     border-radius: 2vw;
 }
 
 .counter{
-    margin : 1vh 7.5vw;
+    margin : 1vh 9vw;
 }
 
 #matchesHeader{
-    margin: 3vh 2vw;
+    margin: 2vh 3.5vw;
 }
 
 #timerHeader{
-    margin: 2vh 4vw;
+    margin: 2vh 5.6vw;
+}
+
+#highScoreHeader{
+    margin: 2vh 2.2vw;
 }
 
 #statusContainer{
