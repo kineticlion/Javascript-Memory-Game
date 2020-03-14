@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="css/style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
     <title>Document</title>
 </head>
 <body>
@@ -23,32 +24,33 @@
         </div>
         <div id ="gameGridContainer">
             <div id="gridButtonContainer">
-                <button class="symbol gameSymbols"></button>
-                <button class="symbol gameSymbols"></button>
-                <button class="symbol gameSymbols"></button>
-                <button class="symbol gameSymbols"></button>
-                <button class="symbol gameSymbols"></button>
-                <button class="symbol gameSymbols"></button>
-                <button class="symbol gameSymbols"></button>
-                <button class="symbol gameSymbols"></button>
-                <button class="symbol gameSymbols"></button>
-                <button class="symbol gameSymbols"></button>
-                <button class="symbol gameSymbols"></button>
-                <button class="symbol gameSymbols"></button>
+                <button id='1' class="symbol gameSymbols"></button>
+                <button id='2' class="symbol gameSymbols"></button>
+                <button id='3' class="symbol gameSymbols"></button>
+                <button id='4' class="symbol gameSymbols"></button>
+                <button id='5' class="symbol gameSymbols"></button>
+                <button id='6' class="symbol gameSymbols"></button>
+                <button id='7' class="symbol gameSymbols"></button>
+                <button id='8' class="symbol gameSymbols"></button>
+                <button id='9' class="symbol gameSymbols"></button>
+                <button id='10' class="symbol gameSymbols"></button>
+                <button id='11' class="symbol gameSymbols"></button>
+                <button id='12' class="symbol gameSymbols"></button>
             </div>
         </div>
         <div id ="dataContainer" class="onHover">
             <h1 id="timerHeader">🆃🅸🅼🅴🆁</h1>
-            <label id="timer" class ="counter">00</label>
+            <label id="timer" class ="counter">0</label>
             <h1 id="matchesHeader">🅼🅰🆃🅲🅷🅴🅳</h1>
-            <label id="matchCount" class="counter">00</label>
+            <label id="matchCount" class="counter">0</label>
             <h1 id="highScoreHeader">🅷🅸🅶🅷🆂🅲🅾🆁🅴</h1>
-            <label id="highScore" class="counter">00</label>
+            <label id="highScore" class="counter">0</label>
         </div>
         <div id="statusContainer">
             <button id ="start" class="status">🆂🆃🅰🆁🆃</button>
             <button id ="reset" class="status hide">🆁🅴🆂🅴🆃</button>
         </div>
     </div>
+    <script src = "js/game.js"></script>
 </body>
 </html>
