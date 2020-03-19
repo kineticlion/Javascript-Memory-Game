@@ -3,20 +3,18 @@ let statusButtons = $('#statusContainer button')
 let gridButtons = $('#gridButtonContainer button')
 let timer = $('#timer')
 let matched = $('#matchCount')
+let highScore = $('#highScore')
 let interval = null
 let status = null
 let time = 0
 let randomGridArray = []
 let currentMatched = 0
-let highScore = 0;
-toggleDisable(gridButtons);
+let highScoreTime = 0;
 statusButtons.on('click', function () {
     if (status === 'start' || status === null) {
         initGrid(gridButtons)
-        toggleDisable(gridButtons);
         return
     }
-    toggleDisable(gridButtons);
     resetGrid(gridButtons)
 })
 
@@ -35,20 +33,13 @@ function switchStatus () {
 function updateTimer () {
     if (!interval) {           //reset the time value
         time = 0
-        $(timer).html(time)
+        $(timer).html(time+'s')
         return
     }
     time += 1
-    $(timer).html(time)
+    $(timer).html(time+'s')
 }
 
-//extras
-function revealGrid (grid) {
-    $(gridButtons).each(function (index) {
-        let imageUrlPath = `url('./images/${randomGridArray[index]}.png')`
-        $(this).css({ 'background-image': imageUrlPath })
-    })
-}
 
 function randomize (grid) {
     let newGrid1 = []
@@ -69,52 +60,61 @@ function randomize (grid) {
 
 function resetGrid (grid) {
     $(grid).each(function () {
-        $(this).css('background-image', 'url(./images/hide.png')
+        $(this).css('background-image', `url('./images/hide.png')`)
+        console.log($(this).css('background-image'))
     })
     $(grid).off() //remove eventListener from grid
+    updateHighScore();
     currentMatched = 0
     updateMatch()
     switchStatus()
     clearInterval(interval) //clear update interval
     interval = null
     updateTimer()
-
+    disableElement(grid);
 }
 
 function initGrid (grid) {
+    enableElement(grid)
     let selection1, selection2
     switchStatus()
     interval = setInterval(updateTimer, 1000)
     randomGridArray = randomize(grid)
     $(grid).on('click', function (event) {
         let imageUrl = `url('./images/${randomGridArray[event.currentTarget.id - 1]}.png')`
+        console.log(imageUrl);
         $(this).css({ 'background-image': imageUrl })
-        if (!selection1) {
-            selection1 = $(this)
-            $(selection1).prop('disabled',true); //bug fix cannot select first element twice
-            return
+        console.log($(this).attr('style'))
+        if(!selection1){
+            selection1 = this;
+            disableElement(selection1);
+            return;
         }
-        selection2 = $(this)
+        selection2= this;
         selection1 = selection2 = matchHandler(selection1, selection2)
     })
 }
 
 function matchHandler (selection1, selection2) {
+    disableElement(gridButtons)
+    console.log(checkMatch(selection1,selection2));
     if (checkMatch(selection1, selection2)) {
         currentMatched += 1
+        $(selection1).off();
+        $(selection2).off();
         updateMatch()
+        enableElement(gridButtons);
         return null
     }
     setTimeout(function () {
-        toggleDisable(gridButtons)
         resetMatch(selection1, selection2)
-    }, 1000)
-    toggleDisable(gridButtons)
+        enableElement(gridButtons);
+    }, 650)
     return null
 }
 
 function checkMatch (selection1, selection2) {
-    return ($(selection1).css('background-image') === $(selection2).css('background-image')) ? true : false
+    return $(selection1).attr('style') === $(selection2).attr('style')
 }
 
 function resetMatch (selection1, selection2) {
@@ -123,13 +123,25 @@ function resetMatch (selection1, selection2) {
 }
 
 function updateMatch (selection1, selection) {
+    if(currentMatched === 6){
+        resetGrid(gridButtons);
+        return;
+    }
     $(matched).html(currentMatched)
 }
 
-function toggleDisable (grid) {
-    if ($(grid).prop('disabled')) {
-        $(grid).prop('disabled', false)
-        return
+function disableElement (element) {
+        $(element).prop('disabled', true)
+}
+
+function enableElement (element) {
+    $(element).prop('disabled', false)
+}
+
+function updateHighScore(){
+    time = parseInt($(timer).html())
+    if(highScoreTime < time){
+        highScoreTime = time
+        $(highScore).html(highScoreTime+'s')
     }
-    $(grid).prop('disabled', true)
 }
