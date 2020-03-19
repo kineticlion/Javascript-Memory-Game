@@ -10,6 +10,7 @@ let time = 0
 let randomGridArray = []
 let currentMatched = 0
 let highScoreTime = 0;
+
 statusButtons.on('click', function () {
     if (status === 'start' || status === null) {
         initGrid(gridButtons)
@@ -72,6 +73,7 @@ function resetGrid (grid) {
     interval = null
     updateTimer()
     disableElement(grid);
+    randomGridArray = [];
 }
 
 function initGrid (grid) {
