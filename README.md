@@ -1,2 +1,5 @@
-# Javascript-Memory-Game
-Javascript final project for ISI
+## Features 
+Interactive UI
+Match Symbols to score
+Self Updating timer
+HighScore counter
