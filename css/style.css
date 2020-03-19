@@ -27,6 +27,7 @@
 
 .onHover:hover,#symbolContainer button:hover{
     cursor:default;
+    background-color: transparent;
 }
 
 #headerContainer h1{
@@ -41,6 +42,7 @@
     margin: 1vh 2vw;
     cursor: default;
     background-size: contain;
+    transition: all 0.4s;
 }
 
 .gameSymbols{
@@ -117,6 +119,7 @@
     grid-template-rows: 10vh 10vh;
     grid-template-columns: 15vw 15vw 15vw;
     text-align: center;
+
 }
 
 .hide{
@@ -125,13 +128,14 @@
 
 #dataContainer{
     grid-area: dataContainer;
-    margin: 2vh 2vw;
+    margin: 2vh 1vw;
     background-color: #dcd2c0;
     border-radius: 2vw;
 }
 
 .counter{
     margin : 1vh 9.5vw;
+    font-size: .7em;
 }
 
 #matchesHeader{
