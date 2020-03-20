@@ -141,9 +141,13 @@ function enableElement (element) {
 }
 
 function updateHighScore(){
-    time = parseInt($(timer).html())
-    if(highScoreTime < time){
-        highScoreTime = time
-        $(highScore).html(highScoreTime+'s')
+    if(currentMatched === 6){
+        time = parseInt($(timer).html())
+        if(highScoreTime < time){
+            highScoreTime = time
+            $(highScore).html(highScoreTime+'s')
+        }
+    return;
     }
+    return;
 }
