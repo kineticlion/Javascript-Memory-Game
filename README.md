@@ -13,7 +13,7 @@
 - :heavy_check_mark: HighScore counter
 
 ## Live Demo :computer:
-- https://kineticlion.github.io/Javascript-Memory-Game/ :point-left:
+- https://kineticlion.github.io/Javascript-Memory-Game/ :point_left:
 
 ## Contributers :busts_in_silhouette:
 - @kineticlion :hand:
